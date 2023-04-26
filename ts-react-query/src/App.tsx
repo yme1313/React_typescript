@@ -4,6 +4,7 @@ import { Route, Routes} from "react-router-dom";
 
 import Home from './containers/Home';
 import Movie from "../src/containers/Movie";
+import MuiTest from '../src/containers/MuiTest'
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/movie" element={<Movie />} />
+      <Route path="/muitest" element={<MuiTest />} />
     </Routes>   
     <ReactQueryDevtools initialIsOpen={true} /> 
     </>

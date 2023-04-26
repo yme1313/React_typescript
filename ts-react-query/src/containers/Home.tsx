@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const [text, setText] = useState<string>('')
 
   return (
     <Wrapper>
@@ -11,7 +9,9 @@ export default function Home() {
       <Button color="red">
         <Link to="/movie">Movie List</Link>
       </Button>
-      <Button color="red">Red Button</Button>
+      <Button color="red">
+        <Link to="/muitest">Material UI</Link>
+      </Button>
       <Button color="blue">Blue Button</Button>
     </Wrapper>
   )
