@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-
   return (
     <Wrapper>
       <Title>첫 화면입니다.</Title>
@@ -12,9 +11,11 @@ export default function Home() {
       <Button color="red">
         <Link to="/muitest">Material UI</Link>
       </Button>
-      <Button color="blue">Blue Button</Button>
+      <Button color="blue">
+        <Link to="/todo">Todo List</Link>
+      </Button>
     </Wrapper>
-  )
+  );
 }
 
 const Title = styled.h1`
@@ -35,11 +36,11 @@ const Button = styled.button`
   padding: 0.5em 1em;
   border-radius: 3px;
   border: none;
-  margin : 10px;
-  cursor : pointer;
+  margin: 10px;
+  cursor: pointer;
 
   & > a {
-    text-decoration : none;
-    color : white;
+    text-decoration: none;
+    color: white;
   }
 `;
