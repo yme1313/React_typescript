@@ -1,6 +1,7 @@
 import React from "react";
 import { todoListState } from "../containers/TodoListContainer";
 import { selector, useRecoilValue } from "recoil";
+import styled from "styled-components";
 
 export const todoListStatsState = selector({
   key: "TodoListStats",
@@ -37,11 +38,19 @@ export default function TodoListStats() {
   const formattedPercentCompleted = Math.round(percentCompleted);
 
   return (
-    <ul>
-      <li>Total items: {totalNum}</li>
-      <li>Items completed: {totalCompletedNum}</li>
-      <li>Items not completed: {totalUncompletedNum}</li>
-      <li>Percent completed: {formattedPercentCompleted}</li>
-    </ul>
+    <List>
+      <li>총 갯수 : {totalNum}</li>
+      <li>완료 갯수 : {totalCompletedNum}</li>
+      <li>미완료 갯수 : {totalUncompletedNum}</li>
+      <li>완료율 : {formattedPercentCompleted}%</li>
+    </List>
   );
 }
+
+const List = styled.ul`
+& > li {
+  list-style : none;
+  text-align : left;
+  padding-left : 8%;
+}
+`

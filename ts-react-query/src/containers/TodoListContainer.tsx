@@ -6,6 +6,7 @@ import TodoListFilters from '../components/TodoListFilters';
 import { todoListFilterState } from '../components/TodoListFilters';
 import TodoListStats from '../components/TodoListStats';
 import { atom } from 'recoil';
+import styled from 'styled-components';
 
 // Todo 안에 값들 타입 지정
 export interface Todo {
@@ -27,9 +28,9 @@ const filteredTodoListState = selector({
     const list = get(todoListState);
 
     switch (filter) {
-      case 'Show Completed':
+      case '1':
         return list.filter((item) => item.isComplete);
-      case 'Show Uncompleted':
+      case '2':
         return list.filter((item) => !item.isComplete);
       default:
         return list;
@@ -42,13 +43,29 @@ export default function TodoList() {
   const todoList = useRecoilValue(filteredTodoListState);
 
   return (
-    <>
+    <Wrapper>
+      <Title>Todo List</Title>
       <TodoListStats />
       <TodoListFilters />
       <TodoItemCreator />
       {todoList.map((todoItem) => (
         <TodoItem key={todoItem.id} item={todoItem} />
       ))}
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  border : 1px solid rgb(66, 165, 245);
+  border-radius : 4px;
+  width : 400px;
+  margin : 0 auto;
+  margin-top : 200px;
+  text-align : center;
+  padding : 20px;
+`;
+
+const Title = styled.h1`
+  color : rgb(66, 165, 245);
+  font-weight : bold;
+`

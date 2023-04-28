@@ -1,5 +1,10 @@
 import { useRecoilState } from 'recoil';
 import { Todo, todoListState } from '../containers/TodoListContainer';
+import { TextField } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Checkbox from '@mui/material/Checkbox';
+import styled from 'styled-components';
 
 type Helper = (arr: Todo[], index: number, newValue: Todo) => Todo[];
 const replaceItemAtIndex: Helper = (
@@ -45,14 +50,24 @@ export default function TodoItem({ item }: { item: Todo }) {
   };
 
   return (
-    <div>
-      <input type="text" value={item.text} onChange={editItemText} />
-      <input
-        type="checkbox"
+    <Wrapper>
+      <Checkbox
         checked={item.isComplete}
         onChange={toggleItemCompletion}
       />
-      <button onClick={deleteItem}>X</button>
-    </div>
+      <TextField
+        size="small"
+        value={item.text}
+        onChange={editItemText}
+        
+      />
+      <IconButton aria-label="delete" onClick={deleteItem}>
+        <DeleteIcon />
+      </IconButton>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  margin: 5px;
+`;
