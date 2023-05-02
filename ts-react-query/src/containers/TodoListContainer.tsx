@@ -8,12 +8,13 @@ import TodoListStats from '../components/TodoListStats';
 import { atom } from 'recoil';
 import styled from 'styled-components';
 
-// Todo 안에 값들 타입 지정
+// Interface
 export interface Todo {
   id: number;
   text: string;
   isComplete: boolean;
 }
+
 // Recoil 생성
 export const todoListState = atom<Todo[]>({
   key: 'todoList',
